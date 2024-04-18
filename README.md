@@ -5,6 +5,7 @@
 [Jakub Więckowski](https://github.com/Wiecus)<br>
 [Grzegorz Wilkowiecki](https://github.com/Talareto)<br>
 [Jakub Żerebecki](https://github.com/jakzer)<br>
+[Konrad Wasiak](https://github.com/Konrad-Wasiak)<br>
 
 
 ## Zasady współpracy:
