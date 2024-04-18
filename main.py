@@ -18,7 +18,7 @@ def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
         elif typ == 'paczka':
             koszt += 2 * 5 + 1
     
-    # Sprawdzenie potwierdzenia odbioru
+    # Sprawdzenie potwierdzenia odbior
     if potwierdzenie_odbioru:
         koszt += 7
     
