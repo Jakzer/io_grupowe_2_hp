@@ -91,6 +91,20 @@ def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
 wynik = wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'wyjec')
 print(wynik)
 
+# Funkcja zamieniająca słownik na string.
+def waluta_dict_na_str(fundusz_dict:dict):
+    list_of_strings = []
+    try:
+        for key in fundusz_dict:
+            if fundusz_dict[key] != 0:
+                string = str(fundusz_dict[key]) + " " + key
+                list_of_strings.append(string)
+        string_output = ' '.join(list_of_strings)
+        return string_output
+    except ValueError:
+        print("Coś jest nie tak z inputem.")
+
+
 
 def waluta_str_na_dict(ciag_znakow):
 
