@@ -95,8 +95,6 @@ wynik = wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'wyjec')
 print(wynik)
 
 
-def waluta_dict_na_str(slownik):
-    return "17 galeon 2 sykl 13 knut"
 
 def nadaj_sowe(adresat:str,tresc:str,potwierdzenie:bool,
                odleglosc:str,typ:str,specjalna:str):
@@ -111,3 +109,45 @@ def nadaj_sowe(adresat:str,tresc:str,potwierdzenie:bool,
         'koszt_przesylki': waluta_dict_na_str(koszt_sowy),
         'potwierdzenie_odb': 'TAK' if potwierdzenie else 'NIE'
     }]).to_csv('poczta_nadania_lista.csv', mode='a', index=False,header=header)
+
+
+# Funkcja zamieniająca słownik na string.
+def waluta_dict_na_str(fundusz_dict:dict):
+    list_of_strings = []
+    try:
+        for key in fundusz_dict:
+            if fundusz_dict[key] != 0:
+                string = str(fundusz_dict[key]) + " " + key
+                list_of_strings.append(string)
+        string_output = ' '.join(list_of_strings)
+        return string_output
+    except ValueError:
+        print("Coś jest nie tak z inputem.")
+
+
+
+def waluta_str_na_dict(ciag_znakow):
+
+    elementy = ciag_znakow.split()
+
+    cena_dict = {}
+
+    for i in range(0, len(elementy), 2):
+        klucz = elementy[i+1]
+
+        if klucz.startswith('g'):
+            cena_dict['galeon'] = int(elementy[i])
+
+        elif klucz.startswith('s'):
+            cena_dict['sykl'] = int(elementy[i])
+
+        elif klucz.startswith('k'):
+            cena_dict['knut'] = int(elementy[i])
+
+    return cena_dict
+
+ciag_znakow = "17 galeon 2 sykl 13 knut"
+
+cena_słownik = waluta_str_na_dict(ciag_znakow)
+print(cena_słownik)
+
