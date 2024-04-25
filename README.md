@@ -7,6 +7,7 @@
 [Jakub Żerebecki](https://github.com/jakzer)<br>
 [Konrad Wasiak](https://github.com/Konrad-Wasiak)<br>
 [Aleksandra Wojewoda](https://github.com/AleksandraWojewodaUEP)<br>
+[Manuela Walczak](https://github.com/manueluwa)<br>
 
 
 ## Zasady współpracy:
