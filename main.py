@@ -1,5 +1,8 @@
 import time
 import random
+import os
+import pandas as pd
+
 
 def wyslij_sowe(adresat, tresc):
     print(f"Twój list do {adresat} już leci!")
@@ -90,6 +93,23 @@ def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
 # Przykładowe wywołanie
 wynik = wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'wyjec')
 print(wynik)
+
+
+
+def nadaj_sowe(adresat:str,tresc:str,potwierdzenie:bool,
+               odleglosc:str,typ:str,specjalna:str):
+    koszt_sowy = wybierz_sowe_zwroc_koszt(potwierdzenie,odleglosc,typ,specjalna)
+    if os.path.exists("poczta_nadania_lista.csv"):
+        header = False
+    else:
+        header = True
+    pd.DataFrame([{
+        'adresat': adresat,
+        'tresc': tresc,
+        'koszt_przesylki': waluta_dict_na_str(koszt_sowy),
+        'potwierdzenie_odb': 'TAK' if potwierdzenie else 'NIE'
+    }]).to_csv('poczta_nadania_lista.csv', mode='a', index=False,header=header)
+
 
 # Funkcja zamieniająca słownik na string.
 def waluta_dict_na_str(fundusz_dict:dict):
