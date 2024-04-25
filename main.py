@@ -51,7 +51,7 @@ def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
     
     if odleglosc == 'lokalna':
         if typ == 'list':
-            koszt += 3
+            koszt += 2
         elif typ == 'paczka':
             koszt += 7
     elif odleglosc == 'krajowa':
@@ -103,6 +103,34 @@ def waluta_dict_na_str(fundusz_dict:dict):
         return string_output
     except ValueError:
         print("Coś jest nie tak z inputem.")
+
+
+
+def waluta_str_na_dict(ciag_znakow):
+
+    elementy = ciag_znakow.split()
+
+    cena_dict = {}
+
+    for i in range(0, len(elementy), 2):
+        klucz = elementy[i+1]
+
+        if klucz.startswith('g'):
+            cena_dict['galeon'] = int(elementy[i])
+
+        elif klucz.startswith('s'):
+            cena_dict['sykl'] = int(elementy[i])
+
+        elif klucz.startswith('k'):
+            cena_dict['knut'] = int(elementy[i])
+
+    return cena_dict
+
+ciag_znakow = "17 galeon 2 sykl 13 knut"
+
+cena_słownik = waluta_str_na_dict(ciag_znakow)
+print(cena_słownik)
+
 
 przyklad_zad_5 = waluta_dict_na_str(wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'wyjec'))
 print(przyklad_zad_5)
