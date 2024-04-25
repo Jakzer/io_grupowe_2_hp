@@ -51,7 +51,7 @@ def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
     
     if odleglosc == 'lokalna':
         if typ == 'list':
-            koszt += 2
+            koszt += 3
         elif typ == 'paczka':
             koszt += 7
     elif odleglosc == 'krajowa':
@@ -103,3 +103,6 @@ def waluta_dict_na_str(fundusz_dict:dict):
         return string_output
     except ValueError:
         print("Coś jest nie tak z inputem.")
+
+przyklad_zad_5 = waluta_dict_na_str(wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'wyjec'))
+print(przyklad_zad_5)
