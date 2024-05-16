@@ -6,7 +6,6 @@ suma = licz_sume({
     "knut" : [30, 40, 7]
 })
 assert suma=={'geleon': 12, 'sykl': 0, 'knut': 14}
-
 from main import waluta_str_na_dict
 
 def test_waluta_str_na_dict():
