@@ -1,4 +1,5 @@
 from main import licz_sume
+from main import waluta_dict_na_str
 
 suma = licz_sume({
     "geleon" : [1, 3, 5],
@@ -7,6 +8,14 @@ suma = licz_sume({
 })
 assert suma=={'geleon': 12, 'sykl': 0, 'knut': 14}
 from main import waluta_str_na_dict
+
+def test_dict_na_str():
+    dict_test = {'galeon': 9, 'sykl': 5, 'knut': 2}
+    expected = "9 galeon 5 sykl 2 knut"
+    assert waluta_dict_na_str(dict_test) == expected
+    print("Wszystko cool")
+
+test_dict_na_str()
 
 def test_waluta_str_na_dict():
     ciag_znakow = "5 galeon 10 knut 3 sykl"
